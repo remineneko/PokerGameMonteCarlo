@@ -8,7 +8,7 @@ However, poker is not completely determined by pure luck. Each hand, at each dea
 
 Monte Carlo is a method used to solve deterministic problem (in this case, consider either you have a winning chance or not) using randomness. Using this method, one can consider a hand good or not more reliably while playing, with chances of winning known.
 
-In this project, the main consideration is the odd of winning of a hand of two cards given five cards dealt on the table under a number of players. For any two hands, if one is a sole player, the chances of winning is fixed - the player wins regardless he or she gets anything other than High Card. However, since the game is commonly played by multiple people, the chances of winning is much harder to determine. Therefore, this project will rely on Monte Carlo to determine the winning chances of a hand of a player consider the overall table.
+In this project, the main consideration is the odd of winning of a hand of two cards given five cards dealt on the table under a number of players. For any two hands, if one is a sole player, the chances of winning is fixed - the player wins regardless of what he or she gets. However, since the game is commonly played by multiple people, the chances of winning are much harder to determine. Therefore, this project will rely on Monte Carlo to determine the winning chances of a hand of a player considering the overall table.
 
 
 ## Poker
