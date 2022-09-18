@@ -62,19 +62,21 @@ To parallelize this, I will rely on MPI.
 
 ## Caveat
 
-- It is very hard to avoid duplicate rounds being generated when a large amount of rounds are being simulated, in both serial and parallel implementations. While it is possible to have a "check" to see if a round has been generated or not, having one such check will increase run time by a lot. As a result, for the purpose of making only a simple simulator, I will not include a check for duplicate rounds. Seeding could potentially solve the randomization issues between rounds, but when the program runs in parallel in a large enough amount of times, the offset created by being in different ranks does not mean much anymore, and the overall rate will the same regardless of how many more rounds simulated and the number of processors used. 
+- It is very hard to avoid duplicate rounds being generated when a large amount of rounds are being simulated, in both serial and parallel implementations. While it is possible to have a "check" to see if a round has been generated or not, having one such check will increase run time by a lot. As a result, for the purpose of making only a simple simulator, I will not include a check for duplicate rounds. Seeding could potentially solve the randomization issues between rounds, but when the program runs in parallel for a large enough amount of times, the offset created by being in different ranks does not mean much anymore, and the overall rate will the same regardless of how many more rounds simulated and the number of processors used. 
 
 - Since this is a Monte Carlo simulation, the more processors used, the more time will be needed to run the same program. This is due to the fact that all workers have to do the same amount of work. As a result, when comparing "speedup", I will consider the speedup, if exist, from running the parallel version in comparison to the serial version.
 
 ## Program Usage
 
-After the project is pulled, users can run the program by running either of the commands in either versions (after cd to the final-project folder):
+After the project is pulled, users can run the program by running either of the commands in either versions (after cd to the folder):
 - Serial version:
     + Fixed version with premade files
 ```
 python3 ./main_serial.py fixed /path/to/file/with/comm_card_info.txt /path/to/file/with/hand_card_info.txt num_players num_rounds
 ```
+       
     + Randomized version
+
 ```
 python3 ./main_serial.py random num_players num_rounds seed
 ```
@@ -83,7 +85,9 @@ python3 ./main_serial.py random num_players num_rounds seed
 ```
 mpirun -np num_procs python3 ./main_parallel.py fixed /path/to/file/with/comm_card_info.txt /path/to/file/with/hand_card_info.txt num_players num_rounds
 ```
+
     + Randomized version
+
 ```
 mpirun -np num_procs python3 ./main_parallel.py random num_players num_rounds seed
 ```
